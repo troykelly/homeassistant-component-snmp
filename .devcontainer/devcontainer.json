@@ -39,7 +39,7 @@
 		"--env-file",
 		"${localWorkspaceFolder}/.env"
 	],
-	"postCreateCommand": "python3 -m pip install --upgrade pip; pip3 install --user openai; pip3 install --user -r requirements.txt && pip3 install -e .; export SNMP_PATH=$(python3 -c \"import os; import homeassistant; print(os.path.join(os.path.dirname(homeassistant.__file__), 'components', 'snmp'))\"); echo \"Removing conflicting snmp component from $SNMP_PATH\" && rm -rf \"$SNMP_PATH\"",
+	"postCreateCommand": "python3 -m pip install --upgrade pip; pip3 install --user openai; pip3 install --user -r requirements.txt && pip3 install -e .; SNMP_PATH=$(pip3 show homeassistant | grep '^Location:' | awk '{print $2}')/homeassistant/components/snmp; echo \"Removing conflicting snmp component from $SNMP_PATH\"; rm -rf \"$SNMP_PATH\"",
 	"customizations": {
 		"vscode": {
 			"extensions": [
