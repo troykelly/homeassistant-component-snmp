@@ -12,11 +12,8 @@ setup(
     name="homeassistant-component-snmp",
     version="0.1.0",
     description="A SNMP component for Home Assistant",
-    packages=find_packages(),
-    # If you decide to keep your files where they are, you'll need to let Python know how your
-    # package maps to the filesystem. For example, if you create an empty homeassistant/__init__.py
-    # that imports from your components folder, your package_dir might be just the repository root:
-    package_dir={"homeassistant": "."},
+    packages=find_packages(include=["homeassistant", "homeassistant.*"]),
+    package_dir={"homeassistant": "homeassistant"},
     install_requires=[
         "pysnmp",
         "homeassistant",
