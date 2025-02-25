@@ -1,5 +1,3 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
 	"name": "Python 3",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
@@ -41,7 +39,7 @@
 		"--env-file",
 		"${localWorkspaceFolder}/.env"
 	],
-	"postCreateCommand": "python3 -m pip install --upgrade pip; pip3 install --user openai; pip3 install --user -r requirements.txt && pip3 install --user -e .",
+	"postCreateCommand": "python3 -m pip install --upgrade pip; pip3 install --user openai; pip3 install --user -r requirements.txt && pip3 install -e .; export SNMP_PATH=$(python3 -c \"import os; import homeassistant; print(os.path.join(os.path.dirname(homeassistant.__file__), 'components', 'snmp'))\"); echo \"Removing conflicting snmp component from $SNMP_PATH\" && rm -rf \"$SNMP_PATH\"",
 	"customizations": {
 		"vscode": {
 			"extensions": [
