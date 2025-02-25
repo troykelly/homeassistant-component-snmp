@@ -1,0 +1,18 @@
+{
+    "domain": "snmp",
+    "name": "SNMP",
+    "codeowners": [
+        "@troykelly"
+    ],
+    "documentation": "https://github.com/troykelly/homeassistant-component-snmp/blob/main/README.md",
+    "iot_class": "local_polling",
+    "loggers": [
+        "pyasn1",
+        "pysmi",
+        "pysnmp"
+    ],
+    "quality_scale": "legacy",
+    "requirements": [
+        "pysnmp==6.2.6"
+    ]
+}
