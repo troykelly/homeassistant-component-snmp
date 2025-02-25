@@ -1,3 +1,4 @@
 pysnmp
 pytest
 homeassistant
+voluptuous

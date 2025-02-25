@@ -3,8 +3,9 @@
 from unittest.mock import patch
 
 from pysnmp.hlapi.asyncio import SnmpEngine
+from pysnmp.hlapi.v3arch.asyncio import lcd
 
-from components.snmp import snmp
+from homeassistant.components import snmp
 from homeassistant.const import EVENT_HOMEASSISTANT_STOP
 from homeassistant.core import HomeAssistant
 
@@ -15,7 +16,7 @@ async def test_async_get_snmp_engine(hass: HomeAssistant) -> None:
     assert isinstance(engine, SnmpEngine)
     engine2 = await snmp.async_get_snmp_engine(hass)
     assert engine is engine2
-    with patch.object(engine.transportDispatcher, "closeDispatcher") as mock_close:
+    with patch.object(lcd, "unconfigure") as mock_unconfigure:
         hass.bus.async_fire(EVENT_HOMEASSISTANT_STOP)
         await hass.async_block_till_done()
-    assert mock_close.called
+    assert mock_unconfigure.called
