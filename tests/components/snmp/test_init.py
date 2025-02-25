@@ -5,7 +5,7 @@ from unittest.mock import patch
 from pysnmp.hlapi.asyncio import SnmpEngine
 from pysnmp.hlapi.asyncio.cmdgen import lcd
 
-from homeassistant.components import snmp
+from components.snmp import snmp
 from homeassistant.const import EVENT_HOMEASSISTANT_STOP
 from homeassistant.core import HomeAssistant
 
