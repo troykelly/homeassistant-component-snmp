@@ -1,4 +1,4 @@
-pysnmp
-pytest
-homeassistant
-voluptuous
+pysnmp==7.1.16
+pytest==pytest
+homeassistant==2025.1.4
+voluptuous==0.15.2
